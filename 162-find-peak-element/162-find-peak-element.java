@@ -13,16 +13,16 @@ class Solution {
             return nums.length-1;
         }
         int start = 0;
-        int num = 1;
-        int end = 2;
-        while(end <= nums.length-1){
-            if(nums[num] > nums[start] && nums[num] > nums[end]){
-                return num;
+        int end = nums.length-1;
+        while(start < end){
+            int mid = start + ( end - start ) / 2;
+            if(nums[mid] < nums[mid+1]){
+                start = mid + 1;
             }
-            start++;
-            num++;
-            end++;
+            else{
+                end = mid;
+            }
         } 
-        return 0;
+        return start;
     }
 }
